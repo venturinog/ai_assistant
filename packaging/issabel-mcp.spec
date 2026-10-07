@@ -33,7 +33,7 @@ install -d -m0700 %{buildroot}%{_localstatedir}/lib/issabel-mcp
 
 %pre
 getent group issabel-ai >/dev/null || groupadd -r issabel-ai
-getent passwd issabel-mcp >/dev/null || useradd -r -g issabel-ai -d /var/lib/issabel-mcp -s /sbin/nologin issabel-mcp
+getent passwd issabel-mcp >/dev/null || useradd -r -g issabel-ai -d /var/lib/issabel-mcp -s /usr/sbin/nologin issabel-mcp
 exit 0
 
 %post
