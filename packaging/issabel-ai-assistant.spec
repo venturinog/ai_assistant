@@ -1,13 +1,13 @@
 Name:           issabel-ai-assistant
 Version:        0.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Issabel web interface for the AI assistant
 License:        GPLv3+
 URL:            https://www.issabel.org
 Source0:        %{name}-%{version}.tar.gz
 BuildArch:      noarch
 Requires:       issabel-mcp = %{version}
-Requires:       php, php-curl, php-pdo, shadow-utils
+Requires:       php-cli, php-common, php-pdo, shadow-utils
 
 %description
 Same-origin Issabel chat, per-user BYOK configuration, conversation history,
@@ -49,6 +49,9 @@ if [ $1 -eq 0 ] && command -v issabel-menuremove >/dev/null 2>&1; then issabel-m
 /usr/share/issabel/module_installer/%{name}-%{version}-%{release}/menu.xml
 
 %changelog
+* Fri Oct 09 2026 Issabel Foundation <info@issabel.org> - 0.1.0-2
+- Require the unversioned PHP packages (php-*, 8.3 on EL10) instead of the
+  versioned php8.4-*, which conflict with the PHP 8.3 in the netinstall base.
 * Wed Sep 30 2026 Issabel Foundation <security@issabel.org> - 0.1.0-16
 - Replace browser dialogs with accessible styled modals and scrollable audit output
 
